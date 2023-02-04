@@ -1,6 +1,5 @@
 FROM ubuntu:18.04
-RUN apt update
-RUN apt install maven default-jdk git curl wget -y
+RUN apt update && apt install maven default-jdk git curl wget -y
 ENV TOMCAT_VERSION 9.0.71
 RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz -O /tmp/tomcat.tgz && \ 
 tar xzvf /tmp/tomcat.tgz -C /opt && mv /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat
@@ -12,6 +11,5 @@ WORKDIR /boxfuse-sample-java-war-hello
 RUN mvn package
 WORKDIR  /boxfuse-sample-java-war-hello/target
 RUN cp hello-1.0.war /opt/tomcat/webapps
-WORKDIR /opt/tomcat/bin/
 EXPOSE 8080
 CMD /opt/tomcat/bin/catalina.sh run
