@@ -6,9 +6,8 @@ RUN wget --quiet --no-cookies http://apache.rediris.es/tomcat/tomcat-9/v${TOMCAT
 RUN rm /tmp/tomcat.tgz && rm -rf /opt/tomcat/webapps/examples && rm -rf /opt/tomcat/webapps/docs && rm -rf /opt/tomcat/webapps/ROOT
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$CATALINA_HOME/bin
-WORKDIR /opt/tomcat
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-WORKDIR root/boxfuse-sample-java-war-hello
+WORKDIR /boxfuse-sample-java-war-hello
 RUN mvn package
 WORKDIR  /boxfuse-sample-java-war-hello/target
 RUN cp hello-1.0.war /opt/tomcat/webapps
