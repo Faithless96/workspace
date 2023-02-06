@@ -1,5 +1,5 @@
 FROM ubuntu:18.04
-RUN apt update && apt install python-all python-pip
+RUN apt update && apt install python-all python-pip -y
 ADD requirements.txt /tmp/
 WORKDIR /tmp/
 RUN pip install -qr requirements.txt
