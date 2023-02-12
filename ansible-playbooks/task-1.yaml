@@ -1,0 +1,15 @@
+
+- name: install docker
+  hosts: dev
+  become: yes
+
+  tasts:
+  - name: docker is present
+    apt:
+      name: docker.io
+      state: present
+
+  - name: docker pull
+
+    
+        
