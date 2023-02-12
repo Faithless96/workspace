@@ -24,4 +24,4 @@ services:
 
 
 volumes:
-  myapp:    
+  myapp:
