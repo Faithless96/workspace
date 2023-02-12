@@ -1,9 +1,0 @@
-sudo -i
-sud- -i
-sudo -i
-apy ugrdae
-apy ugrade
-apy upgrade
-ap upgrade
-apt upgrade
-sudo -i
