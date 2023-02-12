@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+
+  mvn:
+    build:
+      context: .
+    volumes:
+    - type: volume
+      source: myapp
+      target: /tmp/app
+
+
+
+  tomcat: 
+    image: tomcat:9.0.71-jre11-temurin-focal
+    volumes:
+      - type: volume
+        source: myapp
+        target: /usr/local/tomcat/webapps
+    ports:
+      - 8080:8080
+    depends_on:
+      - mvn
+
+
+volumes:
+  myapp:    
